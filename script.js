@@ -19,64 +19,78 @@ overlay.addEventListener("click", () => {
 });
 
 // drawers menu
+
+function sendToApp(message) {
+  if (window.Toaster && typeof Toaster.postMessage === "function") {
+    // Running inside Flutter WebView
+    Toaster.postMessage(message);
+  } else {
+    // Running in normal browser
+    window.parent.postMessage(message, "*");
+    console.log(message+" function called");
+    
+  }
+}
+
+
 function navigateToScheme() {
-  window.parent.postMessage("navigateScheme", "*");
+  sendToApp("navigateScheme");
 }
 
 function navigateToCatalogues() {
-   window.parent.postMessage("navigateToCatalogues","*");
+   sendToApp("navigateToCatalogues");
 }
 
 function navigateToQuickPurchase() {
-  window.parent.postMessage("navigateToQuickPurchase","*");
+   sendToApp("navigateToQuickPurchase");
 }
 
 function navigateToBankDetails() {
-  window.parent.postMessage("navigateBankDetails","*");
+  sendToApp("navigateBankDetails");
 }
 
 function navigateToKyc() {
-  window.parent.postMessage("navigateKyc","*");
+  sendToApp("navigateKyc");
 }
 
 function navigateToRate() {
-   window.parent.postMessage("navigateRate","*");
+   sendToApp("navigateRate");
 }
 
 function navigateSchemeRecords() {
-  window.parent.postMessage("navigateSchemeRecords","*");
+  sendToApp("navigateSchemeRecords");
 }
 
 function navigateToCustomerCard() {
-  window.parent.postMessage("navigateCustomerCard","*");
+  sendToApp("navigateCustomerCard");
 }
 
 function navigateTransactionHistory() {
-   window.parent.postMessage("navigateTransactionHistory","*");
+   sendToApp("navigateTransactionHistory");
 }
 
 function navigateToMyOrder() {
-  window.parent.postMessage("navigateToMyOrder","*");
+  sendToApp("navigateToMyOrder");
 }
 
 function navigateToUserProfile() {
-   window.parent.postMessage("navigateToUserProfile","*");
+   sendToApp("navigateToUserProfile");
 }
 
 function navigateToDigitalGold() {
-   window.parent.postMessage("navigateToDigitalGold","*");
+   sendToApp("navigateToDigitalGold");
 }
 
 function navigateToPanchang() {
-   window.parent.postMessage("navigateToPanchang","*");
+   sendToApp("navigateToPanchang");
 }
 
 function navigateToFeedback() {
-  window.parent.postMessage("navigateToFeedback","*");
+  sendToApp("navigateToFeedback");
 }
 
 function navigateToSetting() {
-  window.parent.postMessage("navigateToSetting","*");
+  sendToApp("navigateToSetting");
 }
 
 function setUserName(username) {
@@ -85,7 +99,7 @@ function setUserName(username) {
     "Welcome, " + username;
 }
 function navigateToHomePage() {
-   window.parent.postMessage("navigateToHomePage","*");
+   sendToApp("navigateToHomePage");
 }
 
      AOS.init({
